@@ -40,27 +40,52 @@
         <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
       </div>
     </div>
-    <div class="app">
+    <div id="list" class="app">
       <div class="app__top">
-        <div class="app__menu-btn">
-          <span></span>
-        </div>
-        <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
+        <a class="app__menu-btn" href="http://goo.gl/forms/1326GP6Ktl3jPSwU2" target="_blank">
+        <span></span>
+        </a>
+        <svg id="new" class="app__icon search svg-icon" viewBox="0 0 20 20">
           <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
           <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
         </svg>
-        <p class="app__hello">Good Morning!</p>
+        <p class="app__hello">
+            <?php
+              /* This sets the $time variable to the current hour in the 24 hour clock format */
+              $time = date("H")-7;
+              /* Set the $timezone variable to become the current timezone */
+              //$timezone = date("CST");
+              /* If the time is less than 1200 hours, show good morning */
+              if ($time < "12") {
+                  echo "Good Morning";
+              } else
+              /* If the time is grater than or equal to 1200 hours, but less than 1700 hours, so good afternoon */
+              if ($time >= "12" && $time < "17") {
+                  echo "Good Afternoon";
+              } else
+              /* Should the time be between or equal to 1700 and 1900 hours, show good evening */
+              if ($time >= "17" && $time < "19") {
+                  echo "Good Evening";
+              } else
+              /* Finally, show good night if the time is greater than or equal to 1900 hours */
+              if ($time >= "19") {
+                  echo "Good Night";
+              }
+              //echo $time
+              ?>
+
+        </p>
         <div class="app__user">
           <img src="images/logo.png" alt="" class="app__user-photo" />
-          <span class="app__user-notif">3</span>
+          <!--<span class="app__user-notif">3</span>-->
         </div>
         <!--<div class="app__month">
           <span class="app__month-btn left"></span>
           <p class="app__month-name">March</p>
           <span class="app__month-btn right"></span>
         </div>
-      </div>
-      <div class="app__bot">
+      </div>-->
+      <!--<div class="app__bot">
         <div class="app__days">
           <div class="app__day weekday">Sun</div>
           <div class="app__day weekday">Mon</div>
@@ -76,8 +101,8 @@
           <div class="app__day date">12</div>
           <div class="app__day date">13</div>
           <div class="app__day date">14</div>
-        </div>
-        <div class="app__meetings">
+        </div>-->
+        <!--<div class="app__meetings">
           <div class="app__meeting">
             <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-80_5.jpg" alt="" class="app__meeting-photo" />
             <p class="app__meeting-name">Feed the cat</p>
@@ -109,8 +134,10 @@
         </svg>
       </div>
     </div>
+    <iframe src="https://docs.google.com/spreadsheets/d/1dnyhwt-t-_WmfrDUJLJkof1lg7SI0jOy5hazQQS0RGw/pubhtml?widget=true&amp;headers=false"></iframe>
   </div>
 </div>
+
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
         <script src="js/index.js"></script>
